@@ -190,7 +190,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-01-06 16:34:24 / Modified: 19:14:22" itemprop="dateCreated datePublished" datetime="2020-01-06T16:34:24+08:00">2020-01-06</time>
+              <time title="Created: 2020-01-06 22:50:08 / Modified: 22:50:15" itemprop="dateCreated datePublished" datetime="2020-01-06T22:50:08+08:00">2020-01-06</time>
             </span>
 
           
@@ -231,6 +231,88 @@
 
 <h2 id="下面是例题的正确答案，实现代码："><a href="#下面是例题的正确答案，实现代码：" class="headerlink" title="下面是例题的正确答案，实现代码："></a><strong>下面是例题的正确答案，实现代码：</strong></h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function">struct ListNode* <span class="title">addTwoNumbers</span><span class="params">(struct ListNode* l1, struct ListNode* l2)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//初始化空头</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">head</span> = (<span class="title">struct</span> <span class="title">ListNode</span>*)<span class="title">malloc</span>(<span class="title">sizeof</span>(<span class="title">struct</span> <span class="title">ListNode</span>));</span>	<span class="comment">//建立新的链表头结点，分配数据空间，是返回结果集的链表</span></span><br><span class="line">	head-&gt;next =<span class="literal">NULL</span>;															<span class="comment">//头结点指向空指针</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">tail</span>;</span>														<span class="comment">//建尾指针,用来存储两结构体数据</span></span><br><span class="line">	tail = head;																<span class="comment">//链表头尾指针地址相同，表示链表为空</span></span><br><span class="line">	</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">p1</span> = <span class="title">l1</span>;</span>													<span class="comment">//建立参数指针的代替节点	</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">p2</span> = <span class="title">l2</span>;</span>													</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> carry = <span class="number">0</span>; 																<span class="comment">//进位</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//循环，直到跳出两个链表</span></span><br><span class="line">	<span class="comment">//当两条链表一样长时只需这一次处理，</span></span><br><span class="line">	<span class="comment">//不一样长时，只能处理一样长的大小</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">//同时遍历两个参数链表</span></span><br><span class="line">	<span class="keyword">while</span> (p1 != <span class="literal">NULL</span> &amp;&amp; p2 != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">int</span> sum = p1-&gt;val + p2-&gt;val + carry;								<span class="comment">//参数的两个链表的值之和</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span> (sum &gt;= <span class="number">10</span>)														<span class="comment">//满十进一</span></span><br><span class="line">		&#123;	</span><br><span class="line">			sum -= <span class="number">10</span>;   													<span class="comment">//当前结点的值-10，变为个位 (7+8=15)&gt;10; sum=15-10=5; </span></span><br><span class="line">			carry = <span class="number">1</span>;      												<span class="comment">//大于10，进位1</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>																<span class="comment">//不满十不进位</span></span><br><span class="line">		&#123;</span><br><span class="line">			carry = <span class="number">0</span>;														</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		tail-&gt;next = (struct ListNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct ListNode));					<span class="comment">//新链表从尾节点开始增加新空间</span></span><br><span class="line">		tail = tail-&gt;next;																<span class="comment">//新空间成为新的尾节点</span></span><br><span class="line">		tail-&gt;val = sum;																<span class="comment">//为新的节点赋值</span></span><br><span class="line"></span><br><span class="line">		p1 = p1-&gt;next;																	<span class="comment">//继续遍历指向下一节点</span></span><br><span class="line">		p2 = p2-&gt;next;																	</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (p1 == <span class="literal">NULL</span>)															<span class="comment">//遍历完后:两个链表要么同时为空，要么有一个参数链表不为空，进行判断</span></span><br><span class="line">	&#123;</span><br><span class="line">		p1 = p2;															<span class="comment">//不管谁还剩余空节点，取出剩下的数据</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (p2 = <span class="literal">NULL</span>)														</span><br><span class="line">	&#123;</span><br><span class="line">		p1 = p1;															<span class="comment">//不管谁还剩余空节点，取出剩下的数据</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//遍历剩下的数据</span></span><br><span class="line">	<span class="keyword">while</span> (p1 != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> sum = p1-&gt;val + carry; 											<span class="comment">//带上进制计算当前结点和</span></span><br><span class="line">		<span class="keyword">if</span> (sum &gt;= <span class="number">10</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			sum -= <span class="number">10</span>;</span><br><span class="line">			carry = <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			carry = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//继续朝合并的链表中添加结点</span></span><br><span class="line">		tail-&gt;next = (struct ListNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct ListNode));</span><br><span class="line">		tail = tail-&gt;next;</span><br><span class="line">		tail-&gt;val = sum;</span><br><span class="line">      	p1 = p1-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//如果最后一位还有进制，再申请一个结点存1</span></span><br><span class="line">	<span class="keyword">if</span> (carry == <span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		tail-&gt;next = (struct ListNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct ListNode));</span><br><span class="line">		tail = tail-&gt;next;</span><br><span class="line">		tail-&gt;val = <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	tail-&gt;next = <span class="literal">NULL</span>; <span class="comment">//尾指针赋空，结尾</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//因为我们不能返回头结点，所以要把头结点释放了，但是要头指针移到第一个结点</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">pTemp</span> = <span class="title">head</span>;</span></span><br><span class="line">	head = head-&gt;next;</span><br><span class="line">	<span class="built_in">free</span>(pTemp);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/06/%E5%8A%9B%E6%89%A31/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/06/%E5%8A%9B%E6%89%A31/" class="post-title-link" itemprop="url">力扣1</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-01-06 22:45:26 / Modified: 22:45:37" itemprop="dateCreated datePublished" datetime="2020-01-06T22:45:26+08:00">2020-01-06</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h1><p>给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。<br>可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。</p>
+<p>示例:<br>    给定 nums = [2, 7, 11, 15], target = 9<br>    因为 nums[0] + nums[1] = 2 + 7 = 9<br>    所以返回 [0, 1]</p>
+<p>代码实现：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Note: The returned array must be malloced, assume caller calls free().</span><br><span class="line"> */</span><br><span class="line">int* twoSum(int* nums, int numsSize, int target, int* returnSize)&#123;</span><br><span class="line">    int *a = (int *)malloc(2*sizeof(int));</span><br><span class="line">    for(int i=0;i<span class="tag">&lt;<span class="name">numsSize-1;i++)</span></span></span><br><span class="line">        for(int j=i+i;j&lt;numsSize;j++)&#123;</span><br><span class="line">            if(nums[i]+nums[j]==target)&#123;</span><br><span class="line">                a[0]=i;</span><br><span class="line">                a[1]=j;</span><br><span class="line">                *returnSize = 2;</span><br><span class="line">                return a;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    return a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>函数中的参数：<br>nums：指针指向输入的数组<br>numsSize：是数组的长度<br>target：是数组中的两数和</p>
+</blockquote>
+<h3 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h3><blockquote>
+<p>returnSize指针一开始我就给忽略了，因为不知道它有什么用0.0 </p>
+</blockquote>
+<blockquote>
+<p>现在仔细一想，指针一般就是指向一个数组，然后用来遍历数组的内容</p>
+</blockquote>
+<blockquote>
+<p>或者就是指向一个指针地址的数据，能在函数中起到地址引用的作用</p>
+</blockquote>
+<blockquote>
+<p>然后在看它英文翻译，哈哈哈，长度是一个数，和数组有毛线关系丫，</p>
+</blockquote>
+<blockquote>
+<p>所以接下来就很好理解来进行编写程序实现函数啦。</p>
+</blockquote>
 
       
     </div>
@@ -382,7 +464,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

@@ -33,6 +33,35 @@
 ]]></content>
   </entry>
   <entry>
+    <title>力扣1</title>
+    <url>/2020/01/06/%E5%8A%9B%E6%89%A31/</url>
+    <content><![CDATA[<h1 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h1><p>给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。<br>可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。</p>
+<p>示例:<br>    给定 nums = [2, 7, 11, 15], target = 9<br>    因为 nums[0] + nums[1] = 2 + 7 = 9<br>    所以返回 [0, 1]</p>
+<p>代码实现：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Note: The returned array must be malloced, assume caller calls free().</span><br><span class="line"> */</span><br><span class="line">int* twoSum(int* nums, int numsSize, int target, int* returnSize)&#123;</span><br><span class="line">    int *a = (int *)malloc(2*sizeof(int));</span><br><span class="line">    for(int i=0;i<span class="tag">&lt;<span class="name">numsSize-1;i++)</span></span></span><br><span class="line">        for(int j=i+i;j&lt;numsSize;j++)&#123;</span><br><span class="line">            if(nums[i]+nums[j]==target)&#123;</span><br><span class="line">                a[0]=i;</span><br><span class="line">                a[1]=j;</span><br><span class="line">                *returnSize = 2;</span><br><span class="line">                return a;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    return a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>函数中的参数：<br>nums：指针指向输入的数组<br>numsSize：是数组的长度<br>target：是数组中的两数和</p>
+</blockquote>
+<h3 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h3><blockquote>
+<p>returnSize指针一开始我就给忽略了，因为不知道它有什么用0.0 </p>
+</blockquote>
+<blockquote>
+<p>现在仔细一想，指针一般就是指向一个数组，然后用来遍历数组的内容</p>
+</blockquote>
+<blockquote>
+<p>或者就是指向一个指针地址的数据，能在函数中起到地址引用的作用</p>
+</blockquote>
+<blockquote>
+<p>然后在看它英文翻译，哈哈哈，长度是一个数，和数组有毛线关系丫，</p>
+</blockquote>
+<blockquote>
+<p>所以接下来就很好理解来进行编写程序实现函数啦。</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
     <title>欢迎入住Flint&#39;s blog</title>
     <url>/2020/01/06/%E6%AC%A2%E8%BF%8E%E5%85%A5%E4%BD%8FFlint&#39;s%20blog/</url>
     <content><![CDATA[<h1 id="嗯哼"><a href="#嗯哼" class="headerlink" title="嗯哼"></a>嗯哼</h1><p>大家好！<br>上线了Hexo博客，记下了这一美妙的时刻 。<br><img src="https://img-blog.csdnimg.cn/20200106025440110.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTM4MDMz,size_16,color_FFFFFF,t_70" alt="咦~"></p>
