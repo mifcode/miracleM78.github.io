@@ -165,6 +165,98 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/07/%E5%8A%9B%E6%89%A33/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/07/%E5%8A%9B%E6%89%A33/" class="post-title-link" itemprop="url">力扣3</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-01-07 20:13:03 / Modified: 20:13:24" itemprop="dateCreated datePublished" datetime="2020-01-07T20:13:03+08:00">2020-01-07</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="无重复字符的最长子串"><a href="#无重复字符的最长子串" class="headerlink" title="无重复字符的最长子串"></a>无重复字符的最长子串</h1><p>给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。</p>
+<p><strong>示例 1:</strong></p>
+<blockquote>
+<p>输入: “abcabcbb”<br>输出: 3<br>解释: 因为无重复字符的最长子串是 “abc”，所以其长度为 3。</p>
+</blockquote>
+<p><strong>示例 2:</strong></p>
+<blockquote>
+<p>输入: “bbbbb”<br>输出: 1<br>解释: 因为无重复字符的最长子串是 “b”，所以其长度为 1。</p>
+</blockquote>
+<p><strong>示例 3:</strong></p>
+<blockquote>
+<p>输入: “pwwkew”<br>输出: 3<br>解释:因为无重复字符的最长子串是 “wke”，所以其长度为 3。<br>请注意，你的答案必须是 子串 的长度，”pwke” 是一个子序列，不是子串。</p>
+</blockquote>
+<p><strong>代码实现：</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include <span class="tag">&lt;<span class="name">stdio.h</span>&gt;</span></span><br><span class="line"></span><br><span class="line">int lengthOfLongestSubstring(char * s)&#123;</span><br><span class="line">    int start;</span><br><span class="line">    int end;</span><br><span class="line">    int len;</span><br><span class="line">    int maxLen = 0;</span><br><span class="line">    int i;</span><br><span class="line">	</span><br><span class="line">    //如果字符串为空，或者只有1个字符，则返回0或者1</span><br><span class="line">    len = strlen(s);</span><br><span class="line">    if(len == 0 || len == 1)</span><br><span class="line">    &#123;</span><br><span class="line">        return len;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">	//头指针    </span><br><span class="line">    start = 0;</span><br><span class="line">    //尾巴指针 </span><br><span class="line">    end = 0;</span><br><span class="line">    //长度 </span><br><span class="line">    len = 1;</span><br><span class="line">	//最大长度 </span><br><span class="line">    maxLen = 1; </span><br><span class="line">    //下面一步，字符数组的len&gt;=2	 </span><br><span class="line">    //尾巴和头部同时慢慢移动 </span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">    //	外层循环让尾巴指不断增加	</span><br><span class="line">	// 	尾巴指针从0开始移动了喔</span><br><span class="line">	while(s[end+1]!=0)//字符存在时 ，尾巴指针指不断试探扩大 </span><br><span class="line">    &#123;</span><br><span class="line">    //	内层循环控制尾巴指针，让头指针循环增加	// </span><br><span class="line">		 </span><br><span class="line">		//拿着尾巴指针和开头指针，开始遍历数组 </span><br><span class="line">		//从这里开始，尾巴指针***固定***，头指针从首位开始循环遍历</span><br><span class="line">		//子串在某个范围内已经确定 </span><br><span class="line">        for(i = start; i <span class="tag">&lt;<span class="name">=end;</span> <span class="attr">i</span>++)</span></span><br><span class="line"><span class="tag">        &#123;   </span></span><br><span class="line"><span class="tag">        	//头指针和尾巴指针都是从字符数组首位置开始 </span></span><br><span class="line"><span class="tag">            //每次找的子串都是以开始指针为代表的子串，不断循环地增加向尾巴指针靠近 </span></span><br><span class="line"><span class="tag">			//尾巴指针先固定一下 				</span></span><br><span class="line"><span class="tag">			<span class="attr">if</span>(<span class="attr">s</span>[<span class="attr">i</span>] == <span class="string">s[end+1])</span>		//看看这个范围内是否有重复出现的字符 </span></span><br><span class="line"><span class="tag">            &#123;							//如果出现重复的字符 </span></span><br><span class="line"><span class="tag">                <span class="attr">break</span>;               </span></span><br><span class="line"><span class="tag">            &#125;</span></span><br><span class="line"><span class="tag">        &#125;</span></span><br><span class="line"><span class="tag">		//从这里开始，要开始处理子串了喔,因为这里的子串有了重复字符</span></span><br><span class="line"><span class="tag">		</span></span><br><span class="line"><span class="tag">		//举个例子：<span class="attr">abb</span>这个字符串 </span></span><br><span class="line"><span class="tag">	 	//<span class="attr">abb</span>	<span class="attr">i</span>=<span class="string">start：1</span>		<span class="attr">end</span>：<span class="attr">2</span></span></span><br><span class="line"><span class="tag">						</span></span><br><span class="line">						i&lt;end</span><br><span class="line">					start=i+1=2;</span><br><span class="line">		  </span><br><span class="line">		//这个子串范围出现了重复字符</span><br><span class="line">		//下面就需要对这个子串范围进行处理： </span><br><span class="line">		//因为这里有了重复字符，所以需要同时移动头部指针和尾巴指针 </span><br><span class="line">		</span><br><span class="line">        //如果内循内那个范围内出现了重复的字符</span><br><span class="line">		//内循内那个范围的子串头部减少一个字符成为一个新的子串</span><br><span class="line">        if(i <span class="tag">&lt;<span class="name">=</span> <span class="attr">end</span>)</span></span><br><span class="line"><span class="tag">        &#123;</span></span><br><span class="line"><span class="tag">            <span class="attr">start</span> = <span class="string">i+1;</span>		//到这里，其实不管是头指针还是尾巴指针移动</span></span><br><span class="line"><span class="tag">								//其实都是让子串移动一个格调，让子串的长度减一 </span></span><br><span class="line"><span class="tag">        &#125;</span></span><br><span class="line"><span class="tag">        </span></span><br><span class="line"><span class="tag">        //外层循环尾巴指针向外扩大</span></span><br><span class="line"><span class="tag">		<span class="attr">end</span>++;</span></span><br><span class="line"><span class="tag">		//保存这个子串范围的长度</span></span><br><span class="line"><span class="tag">        <span class="attr">len</span> = <span class="string">end</span> <span class="attr">-</span> <span class="attr">start</span> + <span class="attr">1</span>;      	        </span></span><br><span class="line"><span class="tag">		//保存这个子串范围的最大长度</span></span><br><span class="line">		if(maxLen &lt; len) </span><br><span class="line">        &#123;</span><br><span class="line">            maxLen = len;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;  </span><br><span class="line">    return maxLen;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line"> 	char a[] = "abcabcbb";</span><br><span class="line"> 	int d=lengthOfLongestSubstring(a);</span><br><span class="line">	printf("%d",d);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>函数的返回类型：</strong></p>
+<blockquote>
+<p>int    子串的长度</p>
+</blockquote>
+<p><strong>函数中的参数：</strong></p>
+<blockquote>
+<p>char * s：指针指向输入的数组<br>numsSize：是数组的长度<br>target：是数组中的两数和 </p>
+</blockquote>
+<h2 id="小知识"><a href="#小知识" class="headerlink" title="==小知识=="></a>==小知识==</h2><p><strong>子串</strong></p>
+<blockquote>
+<p>字符串中从首字符开始到末尾字符中，任意连续的一个，多个字符组合，空的字符也是一个子串。</p>
+</blockquote>
+<p><strong>子序列</strong></p>
+<blockquote>
+<p>在字符串里任意一个或者多个字符组合搭配。</p>
+</blockquote>
+<p>举例：“abc”</p>
+<p>a,b,c,ab,bc,abc,空串都是子串。共2^n-1个</p>
+<p>a,b,c,ab,ac,bc,abc,空串都是子序列。一共2^n个</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/06/%E5%8A%9B%E6%89%A32/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -464,7 +556,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
