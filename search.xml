@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>力扣4</title>
+    <url>/2020/01/08/%E5%8A%9B%E6%89%A34/</url>
+    <content><![CDATA[<h1 id="无重复字符的最长子串"><a href="#无重复字符的最长子串" class="headerlink" title="无重复字符的最长子串"></a>无重复字符的最长子串</h1><p>给定两个大小为 m 和 n 的有序数组 nums1 和 nums2。</p>
+<p>请你找出这两个有序数组的中位数，并且要求算法的时间复杂度为 O(log(m + n))。</p>
+<p>你可以假设 nums1 和 nums2 不会同时为空。</p>
+<p><strong>示例 1:</strong></p>
+<blockquote>
+<p>nums1 = [1, 3]<br>nums2 = [2]<br>则中位数是 2.0</p>
+</blockquote>
+<p><strong>示例 2:</strong> </p>
+<blockquote>
+<p>nums1 = [1, 2]<br>nums2 = [3, 4]<br>则中位数是 (2 + 3)/2 = 2.5</p>
+</blockquote>
+<p><strong>代码实现：</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Size)&#123;</span><br><span class="line">    //nums1:有序数组1</span><br><span class="line">    //nums2:有序数组2</span><br><span class="line">    //nums1Size：有序数组1的长度</span><br><span class="line">    //nums2Size：有序数组2的长度                                                                  </span><br><span class="line">    //建立一个数组，数组个数为两个有序数组的个数和;</span><br><span class="line">    int size =  nums1Size+nums2Size;</span><br><span class="line">    int *b=(int *)malloc((nums1Size+nums2Size)*sizeof(int));                                     int i,j;</span><br><span class="line">    double mid;</span><br><span class="line">    for(i=0;i<span class="tag">&lt;<span class="name">nums1Size;i++)</span></span></span><br><span class="line"><span class="tag">    &#123;</span></span><br><span class="line"><span class="tag">        <span class="attr">b</span>[<span class="attr">i</span>]=<span class="string">nums1[i];</span></span></span><br><span class="line">    &#125;                                                                                            for(j=i+1;j&lt;nums2Size;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        b[j]=nums2[j];</span><br><span class="line">    &#125; </span><br><span class="line">    //冒泡排序该数组的数</span><br><span class="line">    for(int i=0;i<span class="tag">&lt;<span class="name">size;i++)</span></span></span><br><span class="line">        for(int j=0;j&lt;size-i-1;j++)&#123;</span><br><span class="line">            if(b[j]&gt;b[j+1])&#123;</span><br><span class="line">                int temp=b[j];</span><br><span class="line">                b[j]=b[j+1];</span><br><span class="line">                b[j+1]=temp;</span><br><span class="line">            &#125;    </span><br><span class="line">        &#125; </span><br><span class="line">                                                                                                 if(size%2==0)&#123;     //有序序列数组的个数和为偶数</span><br><span class="line">        mid=b[size/2]+b[size/2+1];</span><br><span class="line">    &#125;          </span><br><span class="line">    else&#123;</span><br><span class="line">        mid=b[(size-1)/2];</span><br><span class="line">    &#125;     </span><br><span class="line">    return mid;                             </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>函数的返回类型：</strong></p>
+<blockquote>
+<p>double    双精度浮点数</p>
+</blockquote>
+<h2 id="小知识"><a href="#小知识" class="headerlink" title="==小知识=="></a>==小知识==</h2><p><strong>数据类型：</strong></p>
+<blockquote>
+<p>双精度浮点型数据用%lf输出。因为double是8个字节的。<br>float是4个字节的，%f 的格式就是4个字节的。</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
     <title>力扣3</title>
     <url>/2020/01/07/%E5%8A%9B%E6%89%A33/</url>
     <content><![CDATA[<h1 id="无重复字符的最长子串"><a href="#无重复字符的最长子串" class="headerlink" title="无重复字符的最长子串"></a>无重复字符的最长子串</h1><p>给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。</p>
