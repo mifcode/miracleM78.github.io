@@ -3,7 +3,7 @@
   <entry>
     <title>力扣4</title>
     <url>/2020/01/08/%E5%8A%9B%E6%89%A34/</url>
-    <content><![CDATA[<h1 id="无重复字符的最长子串"><a href="#无重复字符的最长子串" class="headerlink" title="无重复字符的最长子串"></a>无重复字符的最长子串</h1><p>给定两个大小为 m 和 n 的有序数组 nums1 和 nums2。</p>
+    <content><![CDATA[<h1 id="寻找两个有序数组的中位数"><a href="#寻找两个有序数组的中位数" class="headerlink" title="寻找两个有序数组的中位数"></a>寻找两个有序数组的中位数</h1><p>给定两个大小为 m 和 n 的有序数组 nums1 和 nums2。</p>
 <p>请你找出这两个有序数组的中位数，并且要求算法的时间复杂度为 O(log(m + n))。</p>
 <p>你可以假设 nums1 和 nums2 不会同时为空。</p>
 <p><strong>示例 1:</strong></p>
