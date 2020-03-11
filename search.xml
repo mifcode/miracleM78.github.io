@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Layui框架下出现的异常</title>
+    <url>/2020/03/11/Layui%E6%A1%86%E6%9E%B6%E4%B8%8B%E5%87%BA%E7%8E%B0%E7%9A%84%E5%BC%82%E5%B8%B8/</url>
+    <content><![CDATA[<p>异常信息：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Handler processing failed; </span><br><span class="line">nested exception is java.lang.AbstractMethodError: </span><br><span class="line">com.meiyijia.service.impl.ProductServiceImpl.addProduct(Lcom/meiyijia/domain/Product;)I</span><br></pre></td></tr></table></figure>
+
+<p>异常过程分析:<br>在提交表单数据的时候，一些数据先是在select下拉框的监听事件中获取option的数据值，然后传递到ajax进行请求的发送的这一时刻，数据多了一个逗号  <strong>，</strong><br>就会发生如上错误，例如插入数据为：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">cateid：<span class="number">405</span>,</span><br></pre></td></tr></table></figure>
+
+<p>提交表单的按钮：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;button class="layui-btn" lay-submit lay-filter="submitBut"&gt;立即提交&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>layui框架默认属性type=’submit’</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//监听提交</span></span><br><span class="line">form.on(<span class="string">'submit(submitBut)'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">	$.ajax(&#123;</span><br><span class="line">		type:<span class="string">'POST'</span>,</span><br><span class="line">	    data: &#123;</span><br><span class="line">	    	<span class="string">"cateid"</span> : cateid,</span><br><span class="line">	        <span class="string">"brandid"</span>: brandid,</span><br><span class="line">	    &#125;,</span><br><span class="line">	    dataType:<span class="string">'json'</span>,</span><br><span class="line">	    url :<span class="string">'addProductInfo.do'</span>,</span><br><span class="line">	    success :<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">	    	alert(<span class="string">"OK"</span>);</span><br><span class="line">	    &#125;,</span><br><span class="line">	    error :<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">	    	alert(<span class="string">"error"</span>);</span><br><span class="line">	    &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>解决办法:<br>将同名的id标签去掉</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;input id=<span class="string">"categoryid"</span> name=<span class="string">"cateid"</span> style=<span class="string">"display:none;"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"layui-input"</span>&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+  </entry>
+  <entry>
     <title>力扣4</title>
     <url>/2020/01/08/%E5%8A%9B%E6%89%A34/</url>
     <content><![CDATA[<h1 id="寻找两个有序数组的中位数"><a href="#寻找两个有序数组的中位数" class="headerlink" title="寻找两个有序数组的中位数"></a>寻找两个有序数组的中位数</h1><p>给定两个大小为 m 和 n 的有序数组 nums1 和 nums2。</p>
